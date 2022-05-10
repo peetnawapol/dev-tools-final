@@ -38,13 +38,13 @@
       </v-toolbar-title>
     </v-app-bar>
     <v-main>
-      <v-container class="pa-10">
+      <v-container class="pa-7">
         <Nuxt />
       </v-container>
     </v-main>
 
     <v-footer
-      :absolute="!fixed"
+      :absolute="fixed"
       app
     >
       <span>&copy; {{ new Date().getFullYear() }}</span>
