@@ -3,7 +3,7 @@ const cors = require('cors')
 const morgan = require('morgan')
 const helmet = require('helmet')
 const app = express()
-
+const sequelize = require('./connections/dbConfig')
 require('dotenv').config()
 
 const routes = require('./routes')

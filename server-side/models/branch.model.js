@@ -1,7 +1,7 @@
-import * as Sequelize from 'sequelize'
-import db from '../connections/dbConfig'
+const Sequelize = require('sequelize')
+const db = require('../connections/dbConfig')
 
-import Faculty from './faculty.model'
+const Faculty = require('./faculty.model')
 
 const Branch = db.define('branches', {
   branch_id: {
@@ -19,4 +19,4 @@ const Branch = db.define('branches', {
 
 Branch.hasMany(Faculty, { foreignKey: 'branch_id' })
 
-export default Branch
+module.exports = Branch

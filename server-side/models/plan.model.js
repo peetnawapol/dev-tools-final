@@ -1,7 +1,7 @@
-import * as Sequelize from 'sequelize'
-import db from '../connections/dbConfig'
+const Sequelize = require('sequelize')
+const db = require('../connections/dbConfig')
 
-import Course from './course.model'
+const Course = require('./course.model')
 
 const Plan = db.define('plans', {
   plan_id: {
@@ -19,4 +19,4 @@ const Plan = db.define('plans', {
 
 Plan.hasMany(Course, { foreignKey: 'plan_id' })
 
-export default Plan
+module.exports = Plan
