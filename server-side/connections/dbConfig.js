@@ -10,4 +10,4 @@ const sequelizeInstance = new Sequelize(
   },
 )
 
-export default sequelizeInstance
+module.exports = sequelizeInstance

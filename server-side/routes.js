@@ -16,7 +16,7 @@ app.route('/courses')
   .post(createCourse)
 
 app.route('/projects')
-  .get(getProjects)
+  .get(getProject)
   .post(createProject)
 
 app.route('/rounds')

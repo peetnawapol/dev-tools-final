@@ -1,5 +1,5 @@
-import * as Sequelize from 'sequelize'
-import db from '../connections/dbConfig'
+const Sequelize = require('sequelize')
+const db = require('../connections/dbConfig')
 
 const Course = db.define('courses', {
   course_id: {
@@ -46,4 +46,4 @@ const Course = db.define('courses', {
   }
 })
 
-export default Course
+module.exports = Course
