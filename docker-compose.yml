@@ -1,0 +1,34 @@
+version: "3.8"
+
+services:
+  client-side:
+    container_name: node_frontend
+    build: ./client-side
+    ports:
+      - "80:8080"
+  server-side:
+    container_name: node_backend
+    build: ./server-side
+    environment:
+    - PGUSER=kmitl
+    - PGPASSWORD=kmitl@dmin
+    - PGDATABASE=master_degree
+    - PGHOST=db
+    depends_on: 
+      - db
+    ports:
+      - "3000:3000"
+  db:
+    container_name: db
+    image: 'postgres:12'
+    ports:
+      - '5432:5432'
+    environment:
+      - POSTGRES_USER=kmitl
+      - POSTGRES_PASSWORD=kmitl@dmin
+      - POSTGRES_DB=master_degree
+    volumes:
+      - pgdata1:/var/lib/postgresql/data
+
+volumes:
+  pgdata1: {}

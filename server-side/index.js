@@ -6,6 +6,7 @@ const app = express()
 
 require('dotenv').config()
 
+const routes = require('./routes')
 const port = process.env.PORT || 5001
 
 app.use(cors())
@@ -17,6 +18,21 @@ app.get('/', (req, res) => {
   res.send('Hello World!')
 })
 
-app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`)
-})
+app.use('/v2', routes)
+
+const start = async () => {
+  const [PORT, HOST] = [process.env.PORT || 3001, 'localhost']
+
+  try {
+    await sequelize.sync(
+      { force: false } // Reset db every time
+    )
+
+    app.listen(PORT);
+    console.log(`Running on http://${HOST}:${PORT}`);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+start()

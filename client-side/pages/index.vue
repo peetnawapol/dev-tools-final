@@ -11,7 +11,27 @@
     </v-col>
 
     <v-col cols="12">
-      <LazyTabItem />
+      <v-row no-gutters>
+        <!-- Search panel -->
+        <v-col cols="12">
+          <LazyTabItem />
+        </v-col>
+
+        <!-- Result panel -->
+        <v-col cols="12">
+          <v-card tile flat>
+            <v-card-title>
+              <h1 class="text-2xl">
+                ผลการค้นหา: 0 รายการ
+              </h1>
+            </v-card-title>
+          </v-card>
+        </v-col>
+
+        <v-col cols="12">
+          <v-card tile flat />
+        </v-col>
+      </v-row>
     </v-col>
   </v-row>
 </template>
